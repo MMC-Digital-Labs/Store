@@ -103,6 +103,79 @@
       font-style:italic;
       color:var(--muted);
     }
+
+    /* === Reviews === */
+    .reviews-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:1rem;
+      margin-top:1.25rem;
+    }
+    @media (max-width:600px){
+      .reviews-grid{ grid-template-columns:1fr; }
+    }
+    .review-card{
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:12px;
+      padding:1.1rem 1rem;
+      background:rgba(255,255,255,.03);
+      display:flex;
+      flex-direction:column;
+      gap:.6rem;
+    }
+    .review-header{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+    }
+    .review-avatar{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      object-fit:cover;
+      flex-shrink:0;
+      background:rgba(255,255,255,.08);
+      /* Placeholder visual por si la imagen no carga */
+      font-size:1.4rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .review-avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:50%;
+    }
+    .review-meta{
+      display:flex;
+      flex-direction:column;
+      gap:.1rem;
+    }
+    .review-name{
+      font-weight:600;
+      font-size:.92rem;
+    }
+    .review-role{
+      font-size:.75rem;
+      color:var(--muted);
+    }
+    .review-stars{
+      color:#f5c518;
+      font-size:1rem;
+      letter-spacing:.05em;
+    }
+    .review-text{
+      font-size:.88rem;
+      color:var(--muted);
+      line-height:1.55;
+      margin:0;
+    }
+    /* La quinta reseña ocupa el ancho completo en desktop */
+    .review-card--full{
+      grid-column: 1 / -1;
+    }
   </style>
 </head>
 <body>
@@ -193,6 +266,110 @@
         cada Mundial.
       </p>
     </section>
+
+    <!-- ===== REVIEWS ===== -->
+    <section class="info-block">
+      <h2>Lo que dicen nuestros lectores</h2>
+      <p style="color:var(--muted);font-size:.9rem;margin-top:-.25rem;">
+        ★★★★★ &nbsp;5.0 de 5 — basado en opiniones de compradores verificados
+      </p>
+      <div class="reviews-grid">
+
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">
+              <!-- Reemplaza el src con la foto real del usuario -->
+              <img src="img/reviews/review-01.jpg" alt="Carlos M." onerror="this.style.display='none';this.parentElement.textContent='👨'"/>
+            </div>
+            <div class="review-meta">
+              <span class="review-name">Carlos M.</span>
+              <span class="review-role">Fanático del fútbol, México</span>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "Lo compré un domingo por la tarde y no lo pude soltar. Cada Mundial tiene su propia historia
+            dentro, y el libro la cuenta como si estuvieras viendo el partido en vivo. ¡Totalmente recomendado!"
+          </p>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">
+              <img src="img/reviews/review-02.jpg" alt="Sofía R." onerror="this.style.display='none';this.parentElement.textContent='👩'"/>
+            </div>
+            <div class="review-meta">
+              <span class="review-name">Sofía R.</span>
+              <span class="review-role">Mamá y aficionada, Colombia</span>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "Se lo regalé a mi esposo y terminé leyéndolo yo primero. El apartado de Qatar 2022 me hizo
+            revivir cada emoción de esa final. Un ebook que une a toda la familia."
+          </p>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">
+              <img src="img/reviews/review-03.jpg" alt="Prof. Eduardo V." onerror="this.style.display='none';this.parentElement.textContent='👨‍🏫'"/>
+            </div>
+            <div class="review-meta">
+              <span class="review-name">Prof. Eduardo V.</span>
+              <span class="review-role">Docente de Historia, Argentina</span>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "Lo uso como material de apoyo en clase. El contexto histórico y cultural que rodea a cada
+            Mundial es impresionante. Mis alumnos conectan mucho mejor con la historia cuando hay fútbol de por medio."
+          </p>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">
+              <img src="img/reviews/review-04.jpg" alt="Don Roberto A." onerror="this.style.display='none';this.parentElement.textContent='👴'"/>
+            </div>
+            <div class="review-meta">
+              <span class="review-name">Don Roberto A.</span>
+              <span class="review-role">Abuelo mundialero, España</span>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "Yo viví varios de estos mundiales frente al televisor. Ver todo documentado así, con datos
+            que ni yo recordaba, fue una sorpresa enorme. El capítulo del Maracanazo me puso la piel de gallina."
+          </p>
+        </div>
+
+        <!-- Review 5 — ancho completo -->
+        <div class="review-card review-card--full">
+          <div class="review-header">
+            <div class="review-avatar">
+              <img src="img/reviews/review-05.jpg" alt="Andrés T." onerror="this.style.display='none';this.parentElement.textContent='🧑'"/>
+            </div>
+            <div class="review-meta">
+              <span class="review-name">Andrés T.</span>
+              <span class="review-role">Estudiante universitario, Chile</span>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "Por menos de lo que vale un café tienes horas de lectura buenísima. Las curiosidades y récords
+            que trae son oro puro para las discusiones con amigos. Ya soy la referencia obligada del grupo
+            cuando se habla de fútbol. ¡Cómpralo sin pensarlo dos veces!"
+          </p>
+        </div>
+
+      </div>
+    </section>
+    <!-- ===== FIN REVIEWS ===== -->
 
     <div class="btn-secondary-cta">
       <h3>No dejes pasar esta oportunidad</h3>

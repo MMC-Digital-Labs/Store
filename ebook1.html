@@ -177,6 +177,23 @@
       grid-column: 1 / -1;
     }
   </style>
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2903042016706423');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2903042016706423&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 <div id="header-placeholder"></div>
@@ -194,7 +211,17 @@
       <div class="price-row">
         <span class="price">$7.90 USD <span style="font-size:.85rem;font-weight:400;color:var(--muted);">USD</span></span>
       </div>
+      <!--
       <a href="https://pay.hotmart.com/B106526015E?off=wmpavpci&checkoutMode=10&bid=1782691765707" class="btn btn-pulse">Comprar ahora →</a>
+      -->
+      <a href="#"
+   class="btn btn-pulse"
+   onclick="goToCheckout(
+      'https://pay.hotmart.com/B106526015E?off=wmpavpci&checkoutMode=10&bid=1782691765707',
+      'Historia de los Mundiales'
+   ); return false;">
+    Comprar ahora →
+</a>
       <div class="trust-row">
         <span class="trust-item">Descarga inmediata</span>
         <span class="trust-item">Pago seguro</span>
@@ -374,7 +401,17 @@
     <div class="btn-secondary-cta">
       <h3>No dejes pasar esta oportunidad</h3>
       <p>Obtén acceso inmediato a toda la historia de los Mundiales por solo $7.90 USD.</p>
+      <!--
       <a href="https://pay.hotmart.com/B106526015E?off=wmpavpci&checkoutMode=10&bid=1782691765707" class="btn btn-pulse">Quiero mi ebook ahora →</a>
+      -->
+      <a href="#"
+   class="btn btn-pulse"
+   onclick="goToCheckout(
+      'https://pay.hotmart.com/B106526015E?off=wmpavpci&checkoutMode=10&bid=1782691765707',
+      'Historia de los Mundiales'
+   ); return false;">
+    Quiero mi ebook ahora →
+</a>
       <div class="trust-row" style="margin-top:1rem;">
         <span class="trust-item">Descarga inmediata</span>
         <span class="trust-item">Pago seguro</span>
@@ -386,5 +423,26 @@
 </main>
 <div id="footer-placeholder"></div>
 <script src="js/main.js"></script>
+<script>
+function goToCheckout(url, productName) {
+
+    fbq('track', 'InitiateCheckout', {
+        content_name: productName,
+        content_category: 'Ebook',
+        content_type: 'ebook',
+        currency: 'USD',
+        value: 7.90
+    }, {
+        event_callback: function () {
+            window.location.href = url;
+        }
+    });
+
+    // Respaldo por si el callback no se ejecuta
+    setTimeout(function () {
+        window.location.href = url;
+    }, 300);
+}
+</script>
 </body>
 </html>
